@@ -52,7 +52,13 @@ def remove_an_item():
 
 
 def mark_an_item_as_done():
-    task = int(input("Enter number of task which is done: "))
+    task = 0
+    while task == 0:
+        try:
+            task = int(input("Enter number of task which is done: "))
+
+        except:
+            print("ERROR!!! Enter integer!")
 
     df = pd.read_csv("tasks.csv")
 
@@ -76,7 +82,13 @@ def list_items():
 
 
 def add_multiple_items(status):
-    amountOfItems = int(input("Enter amount of items: "))
+    amountOfItems = 0
+    while amountOfItems == 0:
+        try:
+            amountOfItems = int(input("Enter amount of items: "))
+
+        except:
+            print("ERROR!!! Enter integer!")
 
     for i in range(0, amountOfItems):
         task = str(input("Enter your task: "))
@@ -100,7 +112,13 @@ def add_multiple_items(status):
 
 
 def remove_multiple_items():
-    amountOfTasks = int(input("Enter amount of tasks to remove: "))
+    amountOfTasks = 0
+    while amountOfTasks == 0:
+        try:
+            amountOfTasks = int(input("Enter amount of items: "))
+
+        except:
+            print("ERROR!!! Enter integer!")
 
     tasks = []
 
@@ -134,7 +152,13 @@ while(inputItem != 7):
     print("6. Remove multiple items")
     print("7. Exit")
 
-    inputItem = int(input("Enter number: "))
+    inputItem = 0
+    while inputItem == 0:
+        try:
+            inputItem = int(input("Enter number: "))
+            break
+        except:
+            print("ERROR!!! Enter integer!")
 
     if inputItem == 1:
         print("You chose add an item")
