@@ -36,6 +36,7 @@ def remove_an_item():
     task = str(input("Enter number of task to remove: "))
 
     lines = list()
+
     with open('tasks.csv', 'r') as readFile:
         reader = csv.reader(readFile)
         for row in reader:
@@ -60,10 +61,10 @@ def mark_an_item_as_done():
         if task == df["No"][i]:
             df.loc[i, 'status'] = 'Done'
 
+            print("Your task was done!")
+
     # writing into the file
     df.to_csv("tasks.csv", index=False)
-
-    print("Your task was done!")
 
 
 def list_items():
@@ -104,20 +105,8 @@ def remove_multiple_items():
     tasks = []
 
     for i in range(0, amountOfTasks):
-        task = str(input("Enter numbers of tasks to remove: "))
+        task = str(input("Enter number of task to remove: "))
         tasks.append(task)
-
-    # df = pd.read_csv("tasks.csv")
-
-    # print(df['No'][2])
-    # # deleting the columns
-    # for i in range(0, amountOfTasks):
-    #     if tasks[i] == df["No"][i]:
-    #         df.drop[i]
-    #         print(df)
-
-    # # writing into the file
-    #         df.to_csv("tasks.csv", index=False)
 
     lines = list()
     with open('tasks.csv', 'r') as readFile:
@@ -133,8 +122,6 @@ def remove_multiple_items():
     with open('tasks.csv', 'w', encoding="UTF8", newline='') as writeFile:
         writer = csv.writer(writeFile)
         writer.writerows(lines)
-
-    print("Your task was done!")
 
 
 while(inputItem != 7):
