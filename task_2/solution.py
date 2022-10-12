@@ -5,7 +5,7 @@ import pandas as pd
 inputItem = 0
 
 header = ['No', 'task', 'status']
-tasks = []
+
 status = 'not done'
 
 # functions
@@ -24,7 +24,6 @@ def add_an_item(status):
 
     with open('tasks.csv', 'a', encoding="UTF8", newline='') as f:
         writer = csv.writer(f)
-        tasks.append(task)
 
         if rowCount == 0:
             data = [1, task, status]
@@ -103,7 +102,6 @@ def add_multiple_items(status):
 
         with open('tasks.csv', 'a', encoding="UTF8", newline='') as f:
             writer = csv.writer(f)
-            tasks.append(task)
 
             if rowCount == 0:
                 data = [1, task, status]
